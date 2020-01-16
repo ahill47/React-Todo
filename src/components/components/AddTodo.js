@@ -6,9 +6,9 @@ export class AddTodo extends Component {
     }
 
     onSubmit=(e)=>{
-        e.preventDefault()
-        this.props.addTodo(this.state.title)
-        this.setState({title:' '})
+        e.preventDefault();
+        this.props.addTodo(this.state.title);
+        this.setState({title:''});
     }
     // target brings in value that is being typed
     onChange=(e)=> this.setState({[e.target.name]: e.target.value});

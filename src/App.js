@@ -3,6 +3,7 @@ import Todo from './components/components/Todo'
 import Header from './components/components/Header'
 import AddTodo from './components/components/AddTodo'
 import './components/components/App.css'
+import uuid from 'uuid'
 
 
 
@@ -16,7 +17,7 @@ class App extends React.Component {
  state={
      todos:[
        {
-       id:1,
+       id: uuid.v4(),
        title:'Learn Functional React',
        completed:false
      },
@@ -48,8 +49,13 @@ delTodo=(id)=>{
   
 
  //
- AddTodo=(title)=>{
-   console.log('hi')
+ addTodo=(title)=>{
+  const newTodo={
+    id:uuid.v4(),
+    title,
+    completed:false
+  }
+  this.setState({todos:[...this.state.todos, newTodo]})
  }
   render() {
     return (
@@ -58,7 +64,8 @@ delTodo=(id)=>{
             <Header/>
             
             <br></br>
-            <AddTodo AddTodo={this.state.todos}/>
+            {/* dont add .state AddTodo has its own state it isn't using App State */}
+            <AddTodo addTodo={this.addTodo}/>
             <Todo todos={this.state.todos} markComplete={this.markComplete}
             delTodo={this.delTodo}/>
           </div>
