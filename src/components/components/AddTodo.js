@@ -25,7 +25,7 @@ export class AddTodo extends Component {
 
                 />
                 <input type="submit"
-                value="Submit"
+                value="Add"
                 className='btn'
                 style={{flex:'1'}}
                 />
